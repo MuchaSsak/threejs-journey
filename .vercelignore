@@ -1,0 +1,7 @@
+node_modules/
+dist/
+*/dist/
+*.blend
+*.blend1
+49-creating-a-scene-in-blender-resources/
+50-baking-and-exporting-the-scene-resources/

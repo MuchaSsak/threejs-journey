@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js Journey</title>
+    <meta name="description" content="Three.js Journey exercises — pick a project to open it.">
+    <style>
+        :root {
+            --bg: #f6f6f4;
+            --surface: #ffffff;
+            --border: #e2e2dc;
+            --text: #1a1a18;
+            --muted: #6b6b66;
+            --accent: #d9480f;
+            --tag-bg: #f0efe9;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0f0f12;
+                --surface: #17171c;
+                --border: #2a2a32;
+                --text: #ececf1;
+                --muted: #8d8d99;
+                --accent: #ff8a4c;
+                --tag-bg: #22222a;
+            }
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        }
+        main { max-width: 1080px; margin: 0 auto; padding: 48px 16px 64px; }
+        header { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 28px; }
+        h1 { margin: 0; font-size: 28px; letter-spacing: -0.02em; }
+        header p { margin: 4px 0 0; color: var(--muted); }
+        input {
+            width: min(320px, 100%);
+            padding: 10px 14px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--surface);
+            color: var(--text);
+            font: inherit;
+        }
+        input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; }
+        .card {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-template-rows: auto auto;
+            column-gap: 12px;
+            padding: 14px 16px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--surface);
+            color: inherit;
+            text-decoration: none;
+            transition: border-color 0.15s, transform 0.15s;
+        }
+        .card:hover, .card:focus-visible { border-color: var(--accent); transform: translateY(-1px); outline: none; }
+        .number { grid-row: span 2; font: 600 13px/1 ui-monospace, monospace; color: var(--accent); padding-top: 4px; }
+        .title { font-weight: 550; }
+        .tag {
+            justify-self: start;
+            margin-top: 6px;
+            padding: 1px 8px;
+            border-radius: 999px;
+            background: var(--tag-bg);
+            color: var(--muted);
+            font-size: 12px;
+        }
+        .empty { color: var(--muted); display: none; padding: 24px 0; }
+        footer { margin-top: 40px; color: var(--muted); font-size: 13px; }
+        footer a { color: inherit; }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <div>
+                <h1>Three.js Journey</h1>
+                <p><!-- COUNT --> projects · pick one to open it</p>
+            </div>
+            <input id="search" type="search" placeholder="Search projects…" aria-label="Search projects" autofocus>
+        </header>
+        <nav class="grid" id="grid"><!-- CARDS -->
+        </nav>
+        <p class="empty" id="empty">No project matches your search.</p>
+        <footer>
+            Exercises from <a href="https://threejs-journey.com" target="_blank" rel="noopener">Three.js Journey</a> by Bruno Simon.
+        </footer>
+    </main>
+    <script>
+        const search = document.getElementById('search')
+        const cards = [...document.querySelectorAll('.card')]
+        const empty = document.getElementById('empty')
+        search.addEventListener('input', () => {
+            const query = search.value.trim().toLowerCase()
+            let visible = 0
+            for (const card of cards) {
+                const match = card.dataset.search.includes(query)
+                card.style.display = match ? '' : 'none'
+                if (match) visible++
+            }
+            empty.style.display = visible ? 'none' : 'block'
+        })
+    </script>
+</body>
+</html>
