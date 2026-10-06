@@ -6,18 +6,6 @@ _Note: this is pretty old for me at this point. I finished the course in January
 
 [![Three.js Journey certificate of completion](.github/certificate.png)](https://threejs-journey.com/certificate/view/45175)
 
-## What's inside
-
-59 projects, numbered after the course lessons:
-
-- **Basics** (04–13): transforms, animations, cameras, geometries, debug UI, textures, materials, 3D text
-- **Classic techniques** (14–23): lights, shadows, a haunted house, particles, a galaxy generator, scroll-based animation, physics, imported models
-- **Advanced techniques** (24–26): environment maps, realistic rendering, code structuring
-- **Shaders** (27–44): patterns, a raging sea, coffee smoke, holograms, fireworks, an earth shader, GPGPU flow-field particles, procedural terrain
-- **Extra** (45–48): post-processing, performance, loading screens, mixing HTML and WebGL
-- **Portal scene** (49–52): modelled and baked in Blender, then imported into Three.js
-- **React Three Fiber** (55–66): from a first R3F app to a portfolio, physics and a full marble-race game
-
 ## Running locally
 
 ```bash
